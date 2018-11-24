@@ -44,7 +44,7 @@ export default {
   mounted () {
     this.$vuepress.$on('AsyncMarkdownContentMounted', (slotKey) => {
       if (slotKey === 'default') {
-        window.addEventListener('scroll', this.onScroll)
+        window.addEventListener('scroll', () => this.onScroll(this.$vuepress.$get('smoothScrolling')))
       }
     })
 
